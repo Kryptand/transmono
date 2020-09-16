@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/kryptand/transmono/compare/v0.0.2-alpha.2...v0.0.2) (2020-09-16)
+
+
+### Bug Fixes
+
+* **translation provider:** fixed error when language is not initialized ([2d03c66](https://github.com/kryptand/transmono/commit/2d03c66d8a91e8d80af0465fecc96d9d1ec33e3a))
+
 ### [0.0.2-alpha.2](https://github.com/kryptand/transmono/compare/v0.0.2-alpha.1...v0.0.2-alpha.2) (2020-09-16)
 
 
