@@ -1,6 +1,6 @@
 {
   "name": "@kryptand/transmono",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "description": "A web component based translation library built with StencilJs. Use it whenever and wherever you like to.",
   "homepage": "https://github.com/kryptand/transmono#readme",
   "url": "https://github.com/kryptand/transmono/issues",
@@ -28,6 +28,7 @@
     "generate": "stencil generate",
     "commit": "git add -A && cz",
     "lint": "eslint src/**/*{.ts,.tsx}",
+    "release": "standard-version",
     "lint-and-fix": "eslint src/**/*{.ts,.tsx} --fix"
   },
   "dependencies": {
@@ -35,21 +36,22 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^26.0.12",
-    "typescript": "^4.0.2",
     "@stencil/eslint-plugin": "^0.3.1",
+    "@types/jest": "^26.0.12",
+    "@types/puppeteer": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
-    "prettier": "^2.1.2",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.5",
-    "@types/puppeteer": "^3.0.1",
-    "cz-conventional-changelog": "^3.3.0",
     "jest": "^26.4.2",
     "jest-cli": "^26.4.2",
-    "puppeteer": "^5.2.1"
+    "prettier": "^2.1.2",
+    "puppeteer": "^5.2.1",
+    "standard-version": "^9.0.0",
+    "typescript": "^4.0.2"
   },
   "config": {
     "commitizen": {
