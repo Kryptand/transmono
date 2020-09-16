@@ -121,16 +121,16 @@ export class TranslationProvider {
     return this.transpiler.transform(translatedString, value);
   }
   private initializeDefaultLang() {
-    if (this.defaultLang !== null) {
-      const lang = navigator.language;
-      if (lang !== null) {
-        console.warn('It was not possible to get the default system language. Falling back to en-US. Provide the @prop defaultLang="de-DE" or similar');
-      }
-      this.defaultLang = lang || EN_LANG_IDENTIFIER;
-      this.currentLang = lang || EN_LANG_IDENTIFIER;
+    if (this.defaultLang != null) {
+      this.currentLang = this.defaultLangs;
       return;
     }
-    this.currentLang = this.defaultLang;
+    const lang = navigator.language;
+    if (lang == null) {
+      console.warn('It was not possible to get the default system language. Falling back to en-US. Provide the @prop defaultLang="de-DE" or similar');
+    }
+    this.defaultLang = lang || EN_LANG_IDENTIFIER;
+    this.currentLang = lang || EN_LANG_IDENTIFIER;
   }
   render() {
     return (
