@@ -1,7 +1,7 @@
 {
-  "name": "transmono",
+  "name": "@kryptand/transmono",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "A web component based translation library built with StencilJs. Use it whenever and wherever you like to.",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
