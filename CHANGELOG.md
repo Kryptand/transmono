@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2-alpha.1](https://github.com/kryptand/transmono/compare/v0.0.2-alpha.0...v0.0.2-alpha.1) (2020-09-16)
+
+
+### Bug Fixes
+
+* **translation-provider:** fix default lang warning ([6682829](https://github.com/kryptand/transmono/commit/6682829ce51fc7926df3b208c801b2b852303023))
+
 ### 0.0.2-alpha.0 (2020-09-16)
 
 
