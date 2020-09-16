@@ -6,6 +6,8 @@ export const DEFAULT_TRANSLATION_LOADER_OPTIONS: TranslationLoaderOptions = {
   path: `assets/i18n/`,
 };
 
+const FETCH_TRANSLATION_FILE_ERROR_MESSAGE = 'There was an error fetching translation files.';
+
 export interface TranslationLoader {
   fetchTranslations(loacle: string): Promise<TranslationEntries>;
 }
@@ -30,13 +32,17 @@ export class DefaultTranslationLoader implements TranslationLoader {
     if (translation) {
       return translation;
     }
-    const response = await fetch(reqUrl);
-    if (!response.ok) {
-      throw new Error('There was an error fetching translation files.');
+    try {
+      const response = await fetch(reqUrl);
+      if (!response.ok) {
+        throw new Error(FETCH_TRANSLATION_FILE_ERROR_MESSAGE);
+      }
+      const res = await response.json();
+      const mappedValue = mapFromObj(res);
+      this.translationCache.set(reqUrl, mappedValue);
+      return mappedValue;
+    } catch (err) {
+      throw new Error(FETCH_TRANSLATION_FILE_ERROR_MESSAGE);
     }
-    const res = response.json();
-    const mappedValue = mapFromObj(res);
-    this.translationCache.set(reqUrl, mappedValue);
-    return mappedValue;
   }
 }

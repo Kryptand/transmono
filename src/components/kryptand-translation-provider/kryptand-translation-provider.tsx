@@ -122,7 +122,7 @@ export class TranslationProvider {
   }
   private initializeDefaultLang() {
     if (this.defaultLang != null) {
-      this.currentLang = this.defaultLangs;
+      this.currentLang = this.defaultLang;
       return;
     }
     const lang = navigator.language;

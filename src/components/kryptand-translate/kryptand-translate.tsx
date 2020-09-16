@@ -27,7 +27,6 @@ export class Translate {
   async componentWillLoad() {
     try {
       const translatorInstance = await getElemWhenDefined<HTMLKryptandTranslationProviderElement>(TRANSLATION_PROVIDER_TAG);
-      console.debug(this.translatorInstance);
       this.translatorInstance = translatorInstance;
       this.currValue = await translatorInstance.translateKey(this.name, this.value);
     } catch (err) {
