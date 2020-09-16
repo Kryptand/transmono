@@ -102,7 +102,7 @@ export class TranslationProvider {
   }
 
   private addEntriesForLang(lang: string, translationEntries: TranslationEntry[]) {
-    const currTranslations = this.translationEntries.get(lang);
+    const currTranslations = this.translationEntries.get(lang) || new Map();
     translationEntries.forEach(translationEntry => {
       currTranslations.set(translationEntry.key, translationEntry.value);
     });
