@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4-0](https://github.com/kryptand/transmono/compare/v0.0.3...v0.0.4-0) (2020-09-16)
+
+
+### Bug Fixes
+
+* **translation:** remove direct dependency between shadow dom elements ([4c6e4ae](https://github.com/kryptand/transmono/commit/4c6e4ae9b8169cb319ffb80ef34c0fedd7e204ad))
+
 ### [0.0.3](https://github.com/kryptand/transmono/compare/v0.0.2...v0.0.3) (2020-09-16)
 
 ### [0.0.2](https://github.com/kryptand/transmono/compare/v0.0.2-alpha.2...v0.0.2) (2020-09-16)
