@@ -1,6 +1,6 @@
 {
   "name": "@kryptand/transmono",
-  "version": "0.0.3",
+  "version": "0.0.3-alpha.3",
   "description": "A web component based translation library built with StencilJs. Use it whenever and wherever you like to.",
   "homepage": "https://github.com/kryptand/transmono#readme",
   "url": "https://github.com/kryptand/transmono/issues",

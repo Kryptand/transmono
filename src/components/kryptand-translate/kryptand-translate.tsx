@@ -1,11 +1,11 @@
 import { Component, Host, h, State, Prop, Listen } from '@stencil/core';
-import { getElemWhenDefined } from '../../utils/utils';
-import { NO_TRANSLATOR_INSTANCE_PROVIDED_MESSAGE, TRANSLATION_PROVIDER_TAG } from './constants';
+import { NO_TRANSLATOR_INSTANCE_PROVIDED_MESSAGE } from './constants';
+import { TranslationControllerInstance } from '../../utils/translation-controller';
 
 @Component({
   tag: 'kryptand-translate',
   styleUrl: 'kryptand-translate.css',
-  shadow: true,
+  shadow: false,
 })
 export class Translate {
   /**
@@ -24,9 +24,9 @@ export class Translate {
   @Prop() value: any;
   @State() currValue: string;
   private translatorInstance: HTMLKryptandTranslationProviderElement;
-  async componentWillLoad() {
+  async componentDidLoad() {
     try {
-      const translatorInstance = await getElemWhenDefined<HTMLKryptandTranslationProviderElement>(TRANSLATION_PROVIDER_TAG);
+      const translatorInstance = TranslationControllerInstance.instance;
       this.translatorInstance = translatorInstance;
       this.currValue = await translatorInstance.translateKey(this.name, this.value);
     } catch (err) {
@@ -34,9 +34,11 @@ export class Translate {
     }
   }
 
-  @Listen('translationEntriesUpdated')
+  @Listen('translationEntriesUpdated', { target: 'window' })
   async entriesUpdated() {
-    console.debug(this.translatorInstance);
+    if (this.translatorInstance == null) {
+      return;
+    }
     this.currValue = await this.translatorInstance.translateKey(this.name, this.value);
   }
 

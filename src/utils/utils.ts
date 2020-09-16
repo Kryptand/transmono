@@ -9,7 +9,7 @@ export const mapFromObj = obj => {
 };
 export const translationEntriesToArr = (entries: TranslationEntries): TranslationEntry[] => {
   let entitiesAsArr = [];
-  entries.forEach((key, val) => {
+  entries.forEach((val, key) => {
     entitiesAsArr = [...entitiesAsArr, { key: key, value: val }];
   });
   return entitiesAsArr;

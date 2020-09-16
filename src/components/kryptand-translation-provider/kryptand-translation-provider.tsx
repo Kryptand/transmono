@@ -1,8 +1,9 @@
-import { Component, Host, h, State, Method, Prop, EventEmitter, Event } from '@stencil/core';
+import { Component, Host, h, State, Method, Prop, EventEmitter, Event, Element } from '@stencil/core';
 import { LanguageScopedTranslationEntry, TranslationEntries, TranslationEntry } from '../../utils/translation-entry';
 import { DefaultTranslationLoader, TranslationLoader } from '../../utils/translation-loader';
 import { DefaultTranspiler, Transpiler } from '../../utils/transpiler';
 import { translationEntriesToArr } from '../../utils/utils';
+import { TranslationControllerInstance } from '../../utils/translation-controller';
 
 const EN_LANG_IDENTIFIER = 'en-US';
 
@@ -12,6 +13,7 @@ const EN_LANG_IDENTIFIER = 'en-US';
   shadow: true,
 })
 export class TranslationProvider {
+  @Element() el;
   @State() translationEntries: LanguageScopedTranslationEntry = new Map();
   @State() currentLang: string;
   /**
@@ -45,6 +47,7 @@ export class TranslationProvider {
    * */
   @Event() translationEntriesUpdated: EventEmitter<LanguageScopedTranslationEntry>;
   async componentWillLoad(): Promise<void> {
+    TranslationControllerInstance.registerInstance(this.el);
     this.initializeDefaultLang();
     await this.loadTranslationEntriesForLang(this.currentLang);
   }
@@ -135,7 +138,7 @@ export class TranslationProvider {
   render() {
     return (
       <Host>
-        <slot></slot>
+        <slot />
       </Host>
     );
   }
