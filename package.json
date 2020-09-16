@@ -20,14 +20,19 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "commit":"git add -A && cz"
+    "commit": "git add -A && cz"
   },
   "dependencies": {
     "@stencil/core": "^2.0.1"
   },
   "license": "MIT",
   "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
+    "@types/jest": "^26.0.12",
+    "@types/puppeteer": "^3.0.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "jest": "^26.4.2",
+    "jest-cli": "^26.4.2",
+    "puppeteer": "^5.2.1"
   },
   "config": {
     "commitizen": {
