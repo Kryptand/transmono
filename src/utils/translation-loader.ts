@@ -22,6 +22,9 @@ export class DefaultTranslationLoader implements TranslationLoader {
     return `${path}${locale}.json`;
   };
   async fetchTranslations(locale: string): Promise<TranslationEntries> {
+    if (locale == '' || locale == null) {
+      throw new Error(`Can't fetch translation entries. There was no locale provided.`);
+    }
     const reqUrl = this.buildReqUrlFromOptions(locale);
     const translation = this.translationCache.get(reqUrl);
     if (translation) {

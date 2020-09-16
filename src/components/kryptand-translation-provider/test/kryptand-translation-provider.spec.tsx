@@ -1,10 +1,11 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { KryptandTranslationProvider } from '../kryptand-translation-provider';
+import { TranslationProvider } from '../kryptand-translation-provider';
+import { Translate } from '../../kryptand-translate/kryptand-translate';
 
 describe('kryptand-translation-provider', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [KryptandTranslationProvider],
+      components: [TranslationProvider],
       html: `<kryptand-translation-provider></kryptand-translation-provider>`,
     });
     expect(page.root).toEqualHtml(`

@@ -1,19 +1,45 @@
-import { Component, Host, h, State, Method } from '@stencil/core';
-import { TranslationEntries } from '../../utils/translation-entry';
+import { Component, Host, h, State, Prop, Listen } from '@stencil/core';
+import { getElemWhenDefined } from '../../utils/utils';
+import { NO_TRANSLATOR_INSTANCE_PROVIDED_MESSAGE, TRANSLATION_PROVIDER_TAG } from './constants';
 
 @Component({
   tag: 'kryptand-translate',
   styleUrl: 'kryptand-translate.css',
   shadow: true,
 })
-export class KryptandTranslate {
-
-  render() {
-    return (
-      <Host>
-        <slot></slot>
-      </Host>
-    );
+export class Translate {
+  /**
+   * The key you set in your translation file.
+   * {
+   *   "hello":"Hallo Welt"
+   * }
+   */
+  @Prop() name: string;
+  /**
+   * The value you want to insert into your string.
+   * {
+   *   "hello":"Hallo {{value}}"
+   * }
+   */
+  @Prop() value: any;
+  @State() currValue: string;
+  private translatorInstance: HTMLKryptandTranslationProviderElement;
+  async componentWillLoad() {
+    try {
+      const translatorInstance = await getElemWhenDefined<HTMLKryptandTranslationProviderElement>(TRANSLATION_PROVIDER_TAG);
+      this.translatorInstance = translatorInstance;
+      this.currValue = await translatorInstance.translateKey(this.name, this.value);
+    } catch (err) {
+      throw new Error(NO_TRANSLATOR_INSTANCE_PROVIDED_MESSAGE);
+    }
   }
 
+  @Listen('translationEntriesUpdated')
+  async entriesUpdated() {
+    this.currValue = await this.translatorInstance.translateKey(this.name, this.value);
+  }
+
+  render() {
+    return <Host innerHTML={this.currValue} />;
+  }
 }
