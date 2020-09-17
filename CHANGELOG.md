@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/kryptand/transmono/compare/v0.0.4-0...v0.0.4) (2020-09-17)
+
+
+### Features
+
+* **translation-provider:** move load to connectedcallback so that it gets called prior to load ([e46f817](https://github.com/kryptand/transmono/commit/e46f8179b17fa796358bbb3226b2990f72648855))
+
 ### [0.0.4-0](https://github.com/kryptand/transmono/compare/v0.0.3...v0.0.4-0) (2020-09-16)
 
 
