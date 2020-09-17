@@ -47,11 +47,12 @@ export class TranslationProvider {
    * */
   @Event() translationEntriesUpdated: EventEmitter<LanguageScopedTranslationEntry>;
   async componentWillLoad(): Promise<void> {
-    TranslationControllerInstance.registerInstance(this.el);
     this.initializeDefaultLang();
     await this.loadTranslationEntriesForLang(this.currentLang);
   }
-
+  connectedCallback() {
+    TranslationControllerInstance.registerInstance(this.el);
+  }
   /**
    * change the current language
    *

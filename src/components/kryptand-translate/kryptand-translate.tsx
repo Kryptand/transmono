@@ -24,7 +24,7 @@ export class Translate {
   @Prop() value: any;
   @State() currValue: string;
   private translatorInstance: HTMLKryptandTranslationProviderElement;
-  async componentDidLoad() {
+  async componentWillLoad() {
     try {
       const translatorInstance = TranslationControllerInstance.instance;
       this.translatorInstance = translatorInstance;
