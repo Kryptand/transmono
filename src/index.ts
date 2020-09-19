@@ -1,2 +1,2 @@
 export { Components, JSX } from './components';
-export { TranslationController } from './utils/translation-controller';
+export { TranslationControllerInstance } from './utils/translation-controller';
